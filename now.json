@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "alias": ["k.evila.me"],
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@now/static"
+    }
+  ],
+  "github": {
+    "slient": true
+  }
+}
