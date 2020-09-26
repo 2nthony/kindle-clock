@@ -1,0 +1,41 @@
+<div id="clock"></div>
+<div id="calendar"></div>
+
+<style>
+  #clock {
+    position: fixed;
+    width: 100%;
+    top: 25%;
+    text-align: center;
+    font-size: 11rem;
+  }
+  #calendar {
+    font-size: 3rem;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+</style>
+
+<script>
+  var clock = document.querySelector('#clock')
+  var calendar = document.querySelector('#calendar')
+
+  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  
+  function init() {
+    var date = new Date()
+    var correctTimezone = date.getTimezoneOffset() + 480
+    date.setMinutes(date.getMinutes() + correctTimezone)
+
+    clock.textContent = ('0' + date.getHours()).slice(-2)
+      + ':' + ('0' + date.getMinutes()).slice(-2)
+    calendar.textContent = date.getFullYear()
+      + '-' + (date.getMonth() + 1)
+      + '-' + date.getDate()
+      + ' ' + days[date.getDay()] + '.'
+  }
+
+  init()
+  setInterval(init, 60)
+</script>
